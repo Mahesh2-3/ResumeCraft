@@ -1,14 +1,11 @@
 import connectDB from "@/app/db";
 import User from "@/app/models/User";
 
-// Define allowed origins (replace with your frontend URL)
-const allowedOrigins = ["https://resume-craft-kw2d2i446-maheshs-projects-99f7ee59.vercel.app"];
-
 const headers = {
-  "Access-Control-Allow-Origin": allowedOrigins.join(", "), // Allow specific origins
-  "Access-Control-Allow-Methods": "GET, POST, OPTIONS", // Allowed HTTP methods
-  "Access-Control-Allow-Headers": "Content-Type", // Allowed headers
-  "Content-Type": "application/json", // Response content type
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Content-Type": "application/json",
 };
 
 export async function GET() {
@@ -35,7 +32,7 @@ export async function GET() {
 export async function POST(request) {
   await connectDB();
   const user = await User.findOne({ current_user: "yes" });
-  let updatedUser;
+  let updatedUser ;
 
   try {
     const { username = "", message } = await request.json();
@@ -48,27 +45,27 @@ export async function POST(request) {
     }
 
     if (username === "") {
-      updatedUser = await User.findOneAndUpdate(
+      updatedUser  = await User.findOneAndUpdate(
         { username: user?.username },
         { current_user: message },
         { new: true }
       );
     } else {
-      updatedUser = await User.findOneAndUpdate(
+      updatedUser  = await User.findOneAndUpdate(
         { username },
         { current_user: message },
         { new: true }
       );
     }
 
-    if (!updatedUser) {
-      return new Response(JSON.stringify({ success: false, message: "User not found" }), {
+    if (!updatedUser ) {
+      return new Response(JSON.stringify({ success: false, message: "User  not found" }), {
         status: 404,
         headers,
       });
     }
 
-    return new Response(JSON.stringify({ success: true, message: "User updated", user: updatedUser }), {
+    return new Response(JSON.stringify({ success: true, message: "User  updated", user: updatedUser  }), {
       status: 200,
       headers,
     });
@@ -78,12 +75,4 @@ export async function POST(request) {
       headers,
     });
   }
-}
-
-// Handle OPTIONS requests for CORS preflight
-export async function OPTIONS() {
-  return new Response(null, {
-    status: 204,
-    headers,
-  });
 }
