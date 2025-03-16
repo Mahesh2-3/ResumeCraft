@@ -11,7 +11,7 @@ export default function Navbar() {
     const [user, setuser] = useState()
 
     useEffect(() => {
-        fetch("/api/info") // Call the API endpoint
+        fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`) // Call the API endpoint
         .then((res) => res.json())
         .then((data)=>{
           setuser(data.user.username)
@@ -22,7 +22,7 @@ export default function Navbar() {
     async function updateUserStatus(message) {
         let username=""
         try {
-            const response = await fetch("/api/info", { // Replace with your actual API route
+            const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`, { // Replace with your actual API route
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export default function Navbar() {
 
             const data = await response.json();
             if (data.success) {
-                router.push("/login")
+                router.push(`${process.env.NEXT_PUBLIC_HOST}/login`)
             }
         } catch (error) {
             console.error("Error updating user:", error);
@@ -48,9 +48,9 @@ export default function Navbar() {
 
                 {/* Navigation Links */}
                 <div className="space-x-6 h-full justify-center flex items-center">
-                    <div className="nav-item"><a href={`/`}>Home</a></div>
-                    <div className="nav-item"><a href={`/${user}#resumeTemplates`}>Templates</a></div>
-                    <div className="nav-item"><a href={`/${user}/dashboard`}>Dashboard</a></div>
+                    <div className="nav-item"><a href={`${process.env.NEXT_PUBLIC_HOST}/`}>Home</a></div>
+                    <div className="nav-item"><a href={`${process.env.NEXT_PUBLIC_HOST}/${user}#resumeTemplates`}>Templates</a></div>
+                    <div className="nav-item"><a href={`${process.env.NEXT_PUBLIC_HOST}/${user}/dashboard`}>Dashboard</a></div>
                     <button onClick={()=>{updateUserStatus("no")}} className="nav-item">
                       Logout
                     </button>

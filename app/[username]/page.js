@@ -13,7 +13,7 @@ export default function LinkShortener() {
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetch("/api/info") // Call the API endpoint
+      await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`) // Call the API endpoint
         .then((res) => res.json())
         .then((data) => {
           setuser(data.user.username)
@@ -73,10 +73,10 @@ export default function LinkShortener() {
           </AnimatedSection>
           <div className="flex flex-wrap w-[80%] gap-9 mx-auto justify-evenly items-center">
             <AnimatedSection duration={1} y={0} x={-60} >
-              <div><a href={`/${user}/editTemplate1`}><img className="scale-90 cursor-pointer" src="resume1.png" alt="" /></a></div></AnimatedSection>
-            <AnimatedSection duration={1} y={0} x={60}><div><a href={`/${user}/editTemplate2`}><img className="scale-90 cursor-pointer" src="resume2.png" alt="" /></a></div></AnimatedSection>
-            <AnimatedSection duration={1} y={0} x={-60}><div><a href={`/${user}/editTemplate3`}><img className="scale-90 cursor-pointer" src="resume3.png" alt="" /></a></div></AnimatedSection>
-            <AnimatedSection duration={1} y={0} x={60}><div><a href={`/${user}/editTemplate4`}><img className="scale-90 cursor-pointer" src="resume4.png" alt="" /></a></div></AnimatedSection>
+              <div><a href={`${process.env.NEXT_PUBLIC_HOST}/${user}/editTemplate1`}><img className="scale-90 cursor-pointer" src="resume1.png" alt="" /></a></div></AnimatedSection>
+            <AnimatedSection duration={1} y={0} x={60}><div><a href={`${process.env.NEXT_PUBLIC_HOST}/${user}/editTemplate2`}><img className="scale-90 cursor-pointer" src="resume2.png" alt="" /></a></div></AnimatedSection>
+            <AnimatedSection duration={1} y={0} x={-60}><div><a href={`${process.env.NEXT_PUBLIC_HOST}/${user}/editTemplate3`}><img className="scale-90 cursor-pointer" src="resume3.png" alt="" /></a></div></AnimatedSection>
+            <AnimatedSection duration={1} y={0} x={60}><div><a href={`${process.env.NEXT_PUBLIC_HOST}/${user}/editTemplate4`}><img className="scale-90 cursor-pointer" src="resume4.png" alt="" /></a></div></AnimatedSection>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/api/info") // Call the API endpoint
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`) // Call the API endpoint
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -135,7 +135,7 @@ const Dashboard = () => {
               </div>
             </motion.div>
 
-            <div className="p-6 rounded-lg border-2 cursor-pointer hover:bg-gray-800" onClick={() => window.location.href = '/ChangePassword'}>
+            <div className="p-6 rounded-lg border-2 cursor-pointer hover:bg-gray-800" onClick={() => window.location.href = `${process.env.NEXT_PUBLIC_HOST}/ChangePassword`}>
               <div className="flex items-center justify-center space-x-4">
                 <motion.div
                   animate={{ opacity: [0, 1], scale: [10, 1] }}

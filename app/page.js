@@ -9,13 +9,13 @@ const YourComponent = () => {
   const [loading, setLoading] = useState(true); // Track loading state
 
   useEffect(() => {
-    fetch("/api/info")
+    fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          router.push(`/${data.user.username}`);
+          router.push(`${process.env.NEXT_PUBLIC_HOST}/${data.user.username}`);
         } else {
-          router.push("/login");
+          router.push(`${process.env.NEXT_PUBLIC_HOST}/login`);
         }
       })
       .finally(() => setLoading(false)); // Stop loading after request

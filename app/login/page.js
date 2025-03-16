@@ -29,11 +29,11 @@ const login = () => {
     err.style.color = message.success ? "green" : "red";
     setTimeout(() => err.style.display = "none", 3000);
     if (message.success) {
-      fetch("/api/info") // Call the API endpoint
+      fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`) // Call the API endpoint
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
-            router.push(`/${data.user.username}`)
+            router.push(`${process.env.NEXT_PUBLIC_HOST}/${data.user.username}`)
           }
         })
         .catch((err) => setError("Error fetching user data"));
@@ -76,7 +76,7 @@ const login = () => {
         </form>
         <div className='flex gap-20 justify-between items-center'>
           <div className='inline text-center my-2'>New to ResumeCraft  <a className="text-green-500 hover:underline underline-offset-4" href="/register">Register Now</a> </div>
-          <a className="text-blue-500 inline text-center my-2 hover:underline underline-offset-4 " href="/ChangePassword">forgot Password</a>
+          <a className="text-blue-500 inline text-center my-2 hover:underline underline-offset-4 " href={`${process.env.NEXT_PUBLIC_HOST}/ChangePassword`}>forgot Password</a>
         </div>
       </div>
     </div>

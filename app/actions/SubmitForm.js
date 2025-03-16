@@ -56,7 +56,7 @@ export const SubmitForm = async (form, from) => {
 
   async function updateUserStatus(username, message) {
     try {
-      const response = await fetch("http://localhost:3000/api/info", { // Replace with your actual API route
+      const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`, { // Replace with your actual API route
         method: "POST",
         headers: {
           "Content-Type": "application/json",

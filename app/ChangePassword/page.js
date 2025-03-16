@@ -30,7 +30,7 @@ const ChangePassword = () => {
     err.style.color = message.success ? "green" : "red";
     setTimeout(() => err.style.display = "none", 3000);
     if (message.success){
-      router.push("/");
+      router.push(`${process.env.NEXT_PUBLIC_HOST}/`);
       reset()
     }
   }

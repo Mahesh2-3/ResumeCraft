@@ -25,7 +25,7 @@ export default function loginPage() {
     setTimeout(() => {
       err.style.display = "none"
       if (message.success) {
-        router.push(`/${data.username}`);
+        router.push(`${process.env.NEXT_PUBLIC_HOST}/${data.username}`);
         reset()
       }
     }, 2000);
@@ -98,8 +98,8 @@ export default function loginPage() {
         </form>
         {/* create a forgot password link and already registered sign in */}
         <div className="text-center mt-4">
-          <a href="/ChangePassword" className="text-blue-500">Forgot Password?</a>
-          <p className="mt-2">Already registered? <a href="/login" className="text-blue-500">Sign In</a></p>
+          <a href={`${process.env.NEXT_PUBLIC_HOST}/ChangePassword`} className="text-blue-500">Forgot Password?</a>
+          <p className="mt-2">Already registered? <a href={`${process.env.NEXT_PUBLIC_HOST}/login`} className="text-blue-500">Sign In</a></p>
         </div>
       </div>
     </div>
