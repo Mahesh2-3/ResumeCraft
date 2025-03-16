@@ -13,5 +13,9 @@ export default {
       },
     },
   },
+  future: {
+    disableDefaultSpacing: true,
+    disableColorOpacityUtilitiesByDefault: true, // Fix the oklch error
+  },
   plugins: [],
 };

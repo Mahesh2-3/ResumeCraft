@@ -2,20 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Hide scrollbar but keep scrolling */
+
+  body {
+    overflow-y: scroll; /* Enables vertical scrolling */
   }
+  
+  /* Hide scrollbar for WebKit browsers (Chrome, Safari) */ 
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar but allow scrolling */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+#experience div, #Certification{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#Certification div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#Certification div input{
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+}
+
+.experiencediv{
+  margin-bottom: 24px;
+}
+#experience div div{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+#experience div input{
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+}
+#experience div div input{
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px;
+  width: 50%;
 }

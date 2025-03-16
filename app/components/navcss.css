@@ -1,0 +1,27 @@
+.nav-item {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .nav-item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  }
+  
+  .nav-item:hover::after {
+    width: 100%;
+    left: 0;
+  }
+  
