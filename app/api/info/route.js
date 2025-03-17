@@ -1,7 +1,6 @@
 import connectDB from "@/app/db";
 import User from "@/app/models/User";
 
-
 // Handle GET and POST requests
 
 export async function GET() {
