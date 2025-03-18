@@ -15,9 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "ResumeCraft ",
   description: "Build resumes with precision and creativity.",
-  icons: {
-    icon: "/ResumeCraft.jpg", // Path to your favicon
-  },
 };
 
 export default function RootLayout({ children }) {
