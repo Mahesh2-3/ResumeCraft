@@ -23,6 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
       <body
         className="antialiased text-white "
       >
