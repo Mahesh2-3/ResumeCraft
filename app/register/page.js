@@ -54,7 +54,7 @@ export default function loginPage() {
     initial={{ scale: 0.8, opacity: 0 }}
     animate={{ scale: 1, opacity: 1 }}
     transition={{ duration: 0.5, ease: "easeOut" }}
-    className="text-7xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600 font-extrabold"
+    className="text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600 font-extrabold"
   >
     ResumeCraft
   </motion.span>

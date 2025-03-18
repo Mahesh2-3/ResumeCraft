@@ -113,14 +113,12 @@ const Resume = () => {
     return (
         <>
             <Navbar />
-            <div className=" h-[90vh]  flex justify-around items-center overflow-hidden">
-                {/* make scroll bar width zero */}
+            <div className=" lg:h-[90vh] h-fit w-full  flex flex-col-reverse lg:flex-row justify-evenly items-center ">
 
+                <div className="inline w-full lg:w-1/2 h-full overflow-y-auto text-black  scrollbar-hide">
 
-                <div className="inline w-1/3 h-full overflow-y-auto text-black  p-6 scrollbar-hide">
-
-                    <h2 className="text-3xl font-semibold mb-4 text-white">Edit Resume</h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <h2 className="w-[80%] mx-auto text-3xl font-semibold mb-4 text-white">Edit Resume</h2>
+                    <form className="w-[80%] mx-auto" onSubmit={handleSubmit(onSubmit)}>
                         <label className="block text-sm font-medium text-white">Name<span className="text-red-500">*</span></label>
                         <input type="text" {...register("name", { required: true, pattern: "/^[A-Za-z]+$/i" })} className="w-full p-2 border rounded mb-2" />
 
@@ -274,7 +272,8 @@ const Resume = () => {
 
                     </form>
                 </div>
-                <div className="scale-95 w-[630px] h-[900px] flex flex-col justify-around shadow-lg border border-gray-300 my-auto px-4 py-6 font-sans bg-white text-black">
+                <div className="scale-[0.7] sm:scale-95 flex h-fit  my-2  lg:my-10  w-fit lg:w-1/2  justify-center items-center ">
+                <div className=" w-[630px] h-[900px] flex mx-auto flex-col justify-around shadow-lg border border-gray-300 my-auto px-4 py-6 font-sans bg-white text-black">
                     <div className="text-black px-3 flex flex-col items-start">
                         <h1 className="text-xl font-bold">{form[0]?.name ?? "DANIEL GALLEGO"}</h1>
                         <h2 className=" font-bold">{form[0]?.title ?? "UX DESIGNER"}</h2>
@@ -336,6 +335,7 @@ const Resume = () => {
                             <p className="px-3 text-xs"><strong>Awards/Activities:</strong> Most Innovative Employer of the Year (2021), Overall Best Employee Division Two (2024), Onboarding Project Lead (2023).</p>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </>

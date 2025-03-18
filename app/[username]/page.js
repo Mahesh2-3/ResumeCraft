@@ -46,32 +46,32 @@ export default function LinkShortener() {
 
 
   return (
-    <>
+    <><div className="relative">
       <motion.div
         animate={{ y: [-100, 0] }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       >
         <Navbar /></motion.div>
       <div>
-        <div className="flex items-center justify-center flex-col h-[92vh] w-[50vw] mx-auto">
-          <span className="my-10 text-5xl font-bold">Welcome to <span className="text-7xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600 font-extrabold">ResumeCraft</span> Your Ultimate Resume Builder
+        <div className="flex items-center justify-center flex-col h-[92vh] w-[90vw] md:w-[65vw] lg:w-[50vw] mx-auto">
+          <span className="my-10 text-3xl md:text-5xl font-bold">Welcome to <span className="text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600 font-extrabold">ResumeCraft</span> Your Ultimate Resume Builder
             <motion.span
               animate={{ rotate: [180, 360], x: [-300, 0], y: [0, 300, 0], opacity: [0, 1], scale: [1.5, 1] }}
               transition={{ duration: 3, ease: "easeInOut" }}
-              className="inline-block text-7xl font-bold"
+              className="inline-block text-5xl md:text-7xl font-bold"
             >🚀</motion.span>
           </span>
           <motion.div
             animate={{ x: [100, 0], opacity: [0, 1] }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
-            <span className="text-xl text-[#bababa] font-bold">Create a professional resume in minutes! Our resume builder provides customizable templates where you can enter your details and generate your own perfect resume—all for free.</span></motion.div>
+            <span className="text-base md:text-xl text-[#bababa] font-bold">Create a professional resume in minutes! Our resume builder provides customizable templates where you can enter your details and generate your own perfect resume—all for free.</span></motion.div>
         </div>
         <div id="resumeTemplates">
           <AnimatedSection duration={1.5} y={-75} x={0}>
-            <div className="text-5xl w-[100vw]  mt-16 font-bold ">Choose A Template</div>
+            <div className=" text-3xl md:text-5xl w-[100vw]  mt-16 font-bold ">Choose A Template</div>
           </AnimatedSection>
-          <div className="flex flex-wrap w-[80%] gap-9 mx-auto justify-evenly items-center">
+          <div className="flex flex-wrap w-[80%] gap-y-9 mx-auto justify-evenly items-center">
             <AnimatedSection duration={1} y={0} x={-60} >
               <div><a href={`${process.env.NEXT_PUBLIC_HOST}/${user}/editTemplate1`}><img className="scale-90 cursor-pointer" src="resume1.png" alt="" /></a></div></AnimatedSection>
             <AnimatedSection duration={1} y={0} x={60}><div><a href={`${process.env.NEXT_PUBLIC_HOST}/${user}/editTemplate2`}><img className="scale-90 cursor-pointer" src="resume2.png" alt="" /></a></div></AnimatedSection>
@@ -81,6 +81,7 @@ export default function LinkShortener() {
         </div>
       </div>
       <Footer/>
+      </div>
     </>
   );
 }

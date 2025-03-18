@@ -106,7 +106,7 @@ const Resume = () => {
 
     const disablebtn = (btn_name) => {
         document.getElementById(`${btn_name}`).disabled = true
-        document.getElementById(`${btn_name}`).style.cursor="not-allowed"
+        document.getElementById(`${btn_name}`).style.cursor = "not-allowed"
     }
 
     const removeSkill = (index) => {
@@ -128,13 +128,12 @@ const Resume = () => {
         <>
 
             <Navbar />
-            <div className=" h-[90vh]  flex justify-around items-center overflow-hidden">
-                {/* make scroll bar width zero */}
+            <div className=" lg:h-[90vh] h-fit w-full  flex flex-col-reverse lg:flex-row justify-evenly items-center ">
 
-                <div className="inline w-1/3 h-full overflow-y-auto text-black  p-6 scrollbar-hide">
+                <div className="inline w-full lg:w-1/2 h-full overflow-y-auto text-black  scrollbar-hide">
 
-                    <h2 className="text-3xl font-semibold mb-4 text-white">Edit Resume</h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <h2 className="w-[80%] mx-auto text-3xl font-semibold mb-4 text-white">Edit Resume</h2>
+                    <form className="w-[80%] mx-auto" onSubmit={handleSubmit(onSubmit)}>
                         <label className="block text-sm font-medium text-white">Name<span className="text-red-500">*</span></label>
                         <input type="text" {...register("name", { required: true })} className="w-full p-2 border rounded mb-2" />
 
@@ -263,135 +262,137 @@ const Resume = () => {
                         <button className="w-full bg-green-500 text-white my-6 rounded-md py-3 " type="submit">Submit</button>
                     </form>
                 </div>
-                <div className="w-[630px] h-[900px] scale-95 text-xs bg-white text-black border-gray-300 my-auto  font-sans">
-                    <div className="h-[20%] p-6 bg-[#4b4b4b] ">
-                        <div className=" w-fit p-6 text-white flex items-center ">
-                            <img
-                                src={preview ?? "/resume3img.png"}
-                                alt="Profile"
-                                className="w-36 h-36 top-6 relative mr-4 object-cover"
-                            />
-                            <div>
-                                <h1 className="text-3xl font-serif tracking-wide font-bold">{form[0]?.name ?? "STEFANO ACCORSI"}</h1>
-                                <h2 className="text-base font-serif">{form[0]?.title ?? "CONTENT STRATEGIST"}</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div className=" h-[80%] bg-[#ffffff]  p-8 flex flex-col justify-around">
-                        <div className="flex justify-between gap-3 items-center">
-                            <div className="mt-4 flex justify-start h-full gap-3 flex-col items-start w-[60%]">
-                                <h3 className="text-black font-bold text-lg">Skills</h3>
-                                <div className="text-[14px] w-full flex flex-wrap  gap-1 text-gray-700">
-                                    {(form[0]?.skillslength > 0 ? form[0].skill : [
-                                        "Python", "C", "JavaScript", "React", "Node.js", "HTML", "CSS", "SQL", "MongoDB", "Firebase"
-                                    ]).map((skill, index) => (
-                                        <div key={index}>• {skill}</div>))}
-
+                <div className="scale-[0.8] sm:scale-95  flex h-fit  my-2  lg:my-10  w-fit lg:w-1/2  justify-center items-center ">
+                    <div className="w-[630px] h-[900px] text-xs bg-white text-black border-gray-300 my-auto  font-sans">
+                        <div className="h-[20%] p-6 bg-[#4b4b4b] ">
+                            <div className=" w-fit p-6 text-white flex items-center ">
+                                <img
+                                    src={preview ?? "/resume3img.png"}
+                                    alt="Profile"
+                                    className="w-36 h-36 top-6 relative mr-4 object-cover"
+                                />
+                                <div>
+                                    <h1 className="text-3xl font-serif tracking-wide font-bold">{form[0]?.name ?? "STEFANO ACCORSI"}</h1>
+                                    <h2 className="text-base font-serif">{form[0]?.title ?? "CONTENT STRATEGIST"}</h2>
                                 </div>
                             </div>
+                        </div>
+                        <div className=" h-[80%] bg-[#ffffff]  p-8 flex flex-col justify-around">
+                            <div className="flex justify-between gap-3 items-center">
+                                <div className="mt-4 flex justify-start h-full gap-3 flex-col items-start w-[60%]">
+                                    <h3 className="text-black font-bold text-lg">Skills</h3>
+                                    <div className="text-[14px] w-full flex flex-wrap  gap-1 text-gray-700">
+                                        {(form[0]?.skillslength > 0 ? form[0].skill : [
+                                            "Python", "C", "JavaScript", "React", "Node.js", "HTML", "CSS", "SQL", "MongoDB", "Firebase"
+                                        ]).map((skill, index) => (
+                                            <div key={index}>• {skill}</div>))}
 
-                            <div className="mt-4 space-y-1 w-[40%]  text-black">
-                                <h3 className="text-black font-bold text-sm">CONTACT</h3>
-                                <p className="text-[10px]"><strong className="text-xs">Phone:</strong> {form[0]?.ph_number ?? "+123-456-7890"}</p>
-                                <p className="text-[10px]"><strong className="text-xs">Email:</strong> {form[0]?.email ?? "hello@reallygreatsite.com"}</p>
-                                <p className="text-[10px]"><strong className="text-xs">Address:</strong> {form[0]?.address ?? "123 Anywhere St., Any City, ST 12345"}</p>
-                                <p className="text-[10px]"><strong className="text-xs">LinkedIn:</strong> {form[0]?.Linkedin ?? "@LinkedinUser"}</p>
+                                    </div>
+                                </div>
+
+                                <div className="mt-4 space-y-1 w-[40%]  text-black">
+                                    <h3 className="text-black font-bold text-sm">CONTACT</h3>
+                                    <p className="text-[10px]"><strong className="text-xs">Phone:</strong> {form[0]?.ph_number ?? "+123-456-7890"}</p>
+                                    <p className="text-[10px]"><strong className="text-xs">Email:</strong> {form[0]?.email ?? "hello@reallygreatsite.com"}</p>
+                                    <p className="text-[10px]"><strong className="text-xs">Address:</strong> {form[0]?.address ?? "123 Anywhere St., Any City, ST 12345"}</p>
+                                    <p className="text-[10px]"><strong className="text-xs">LinkedIn:</strong> {form[0]?.Linkedin ?? "@LinkedinUser"}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="w-full h-[2px] bg-black"></div>
+                            <div className="w-full h-[2px] bg-black"></div>
 
-                        <div className="mt-4">
-                            <h3 className="text-black font-bold text-sm">WORK EXPERIENCE</h3>
-                            {(form[0]?.length > 0 ? form[0].experience :
-                                [
-                                    {
-                                        aboutRole1: "Created and executed ",
-                                        aboutRole2: "Increased lead generation by 25% within a year",
-                                        aboutRole3: "Created and executed ",
-                                        company: "Content Strategist",
-                                        duration: " 2020-2023",
-                                        role: "SENIOR GRAPHIC DESIGNER"
-                                    },
-                                    {
-                                        aboutRole1: "Performed market research and data analysis, increasing customer retention rates by 15%",
-                                        aboutRole2: "Contributed to a 30% increase in lead generation through well-developed and executed marketing campaigns",
-                                        aboutRole3: "Developed a digital marketing campaign for a new product, increasing conversion rates by 5%",
-                                        company: "Marketing Solutions Agency",
-                                        duration: " 2035-2037",
-                                        role: "Marketing Specialist"
-                                    }
-                                ]
-                            ).map((exp, index) => (
-                                <div key={index} className="mt-2">
-                                    <h4 className="font-semibold">{exp.role} | <span> {exp.duration}</span></h4>
-                                    <p className="text-xs font-semibold mt-1">{exp.company}</p>
-                                    <ul className="list-disc list-inside text-[10px] text-gray-700">
-                                        <li>{exp.aboutRole1}</li>
-                                        <li>{exp.aboutRole2}</li>
-                                        <li>{exp.aboutRole3}</li>
-                                    </ul>
-                                </div>))}
-                        </div>
-                        <div className="w-full h-[2px] bg-black"></div>
-
-                        <div className="mt-4 flex gap-7">
-                            <div className="w-1/2">
-                                <h3 className="text-black font-bold text-sm">AWARDS AND CERTIFICATION</h3>
-                                <ul className="list-disc list-inside text-[10px] text-gray-700">
-                                    {(form[0]?.awards?.length > 0 ? form[0]?.awards : [
+                            <div className="mt-4">
+                                <h3 className="text-black font-bold text-sm">WORK EXPERIENCE</h3>
+                                {(form[0]?.length > 0 ? form[0].experience :
+                                    [
                                         {
-                                            certificate_name: "Employee Excellence",
-                                            organisation_name: "Marketing Solutions Agency",
-                                            year: "2036"
+                                            aboutRole1: "Created and executed ",
+                                            aboutRole2: "Increased lead generation by 25% within a year",
+                                            aboutRole3: "Created and executed ",
+                                            company: "Content Strategist",
+                                            duration: " 2020-2023",
+                                            role: "SENIOR GRAPHIC DESIGNER"
                                         },
                                         {
-                                            certificate_name: "Certificate of Completion, Marketing Strategy",
-                                            organisation_name: "Marketing Experts Network",
-                                            year: "2035"
-                                        },
-                                        {
-                                            certificate_name: "Promising Writer Award",
-                                            organisation_name: "Liberty State University Editorial Staff",
-                                            year: "2034"
-                                        },
-                                        {
-                                            certificate_name: "Certificate of Completion, Writing for Marketing",
-                                            organisation_name: "Liberty State University",
-                                            year: "2034"
+                                            aboutRole1: "Performed market research and data analysis, increasing customer retention rates by 15%",
+                                            aboutRole2: "Contributed to a 30% increase in lead generation through well-developed and executed marketing campaigns",
+                                            aboutRole3: "Developed a digital marketing campaign for a new product, increasing conversion rates by 5%",
+                                            company: "Marketing Solutions Agency",
+                                            duration: " 2035-2037",
+                                            role: "Marketing Specialist"
                                         }
-                                    ]).map((award, index) => (
-                                        <li key={index} className="font-bold flex flex-col gap-1">
-                                            <div className=" flex gap-2">• {award.certificate_name}<span className=" text-[10px] font-normal">'{award.year}'</span></div>
-                                            <div className="font-normal">      {award.organisation_name}</div></li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="flex flex-col gap-3w-1/2">
-                                <h3 className="text-black font-bold text-sm">ACADEMIC HISTORY</h3>
-                                {(form[0]?.education?.length > 0 ? form[0]?.education : [
-                                    {
-                                        course: "Bachelor of Arts in Marketing Communication",
-                                        cgpa: "3.9",
-                                        duration: "2031-2035",
-                                        university: "Liberty State University"
-                                    },
-                                    {
-                                        course: "High School Diploma",
-                                        cgpa: "3.9",
-                                        duration: "2027-2031",
-                                        university: "Liberty State University"
-                                    }
-                                ]).map((edu, index) => (
-                                    <div key={index}>
-                                        <p className="text-xs font-semibold mt-1">{edu.university} </p>
-                                        <div> {edu.duration}</div>
+                                    ]
+                                ).map((exp, index) => (
+                                    <div key={index} className="mt-2">
+                                        <h4 className="font-semibold">{exp.role} | <span> {exp.duration}</span></h4>
+                                        <p className="text-xs font-semibold mt-1">{exp.company}</p>
                                         <ul className="list-disc list-inside text-[10px] text-gray-700">
-                                            <li>{edu.course}</li>
-                                            <li>GPA {edu.cgpa}</li>
+                                            <li>{exp.aboutRole1}</li>
+                                            <li>{exp.aboutRole2}</li>
+                                            <li>{exp.aboutRole3}</li>
+                                        </ul>
+                                    </div>))}
+                            </div>
+                            <div className="w-full h-[2px] bg-black"></div>
 
-                                        </ul></div>
-                                ))}
+                            <div className="mt-4 flex gap-7">
+                                <div className="w-1/2">
+                                    <h3 className="text-black font-bold text-sm">AWARDS AND CERTIFICATION</h3>
+                                    <ul className="list-disc list-inside text-[10px] text-gray-700">
+                                        {(form[0]?.awards?.length > 0 ? form[0]?.awards : [
+                                            {
+                                                certificate_name: "Employee Excellence",
+                                                organisation_name: "Marketing Solutions Agency",
+                                                year: "2036"
+                                            },
+                                            {
+                                                certificate_name: "Certificate of Completion, Marketing Strategy",
+                                                organisation_name: "Marketing Experts Network",
+                                                year: "2035"
+                                            },
+                                            {
+                                                certificate_name: "Promising Writer Award",
+                                                organisation_name: "Liberty State University Editorial Staff",
+                                                year: "2034"
+                                            },
+                                            {
+                                                certificate_name: "Certificate of Completion, Writing for Marketing",
+                                                organisation_name: "Liberty State University",
+                                                year: "2034"
+                                            }
+                                        ]).map((award, index) => (
+                                            <li key={index} className="font-bold flex flex-col gap-1">
+                                                <div className=" flex gap-2">• {award.certificate_name}<span className=" text-[10px] font-normal">'{award.year}'</span></div>
+                                                <div className="font-normal">      {award.organisation_name}</div></li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="flex flex-col gap-3w-1/2">
+                                    <h3 className="text-black font-bold text-sm">ACADEMIC HISTORY</h3>
+                                    {(form[0]?.education?.length > 0 ? form[0]?.education : [
+                                        {
+                                            course: "Bachelor of Arts in Marketing Communication",
+                                            cgpa: "3.9",
+                                            duration: "2031-2035",
+                                            university: "Liberty State University"
+                                        },
+                                        {
+                                            course: "High School Diploma",
+                                            cgpa: "3.9",
+                                            duration: "2027-2031",
+                                            university: "Liberty State University"
+                                        }
+                                    ]).map((edu, index) => (
+                                        <div key={index}>
+                                            <p className="text-xs font-semibold mt-1">{edu.university} </p>
+                                            <div> {edu.duration}</div>
+                                            <ul className="list-disc list-inside text-[10px] text-gray-700">
+                                                <li>{edu.course}</li>
+                                                <li>GPA {edu.cgpa}</li>
+
+                                            </ul></div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

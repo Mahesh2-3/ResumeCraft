@@ -99,7 +99,7 @@ const editTemplate1 = () => {
 
     const disablebtn = (btn_name) => {
         document.getElementById(`${btn_name}`).disabled = true
-        document.getElementById(`${btn_name}`).style.cursor="not-allowed"
+        document.getElementById(`${btn_name}`).style.cursor = "not-allowed"
     }
 
     const removeSkill = (index) => {
@@ -117,15 +117,13 @@ const editTemplate1 = () => {
     console.log(form)
     return (
         <>
+            <Navbar />
+            <div className=" lg:h-[90vh] h-fit w-full  flex flex-col-reverse lg:flex-row justify-evenly items-center ">
 
-           
-                <Navbar />
-            <div className=" h-[90vh]  flex justify-around items-center overflow-hidden">
+                <div className="inline w-full lg:w-1/2 h-full overflow-y-auto text-black  scrollbar-hide">
 
-                <div className="inline w-1/3 h-full overflow-y-auto text-black  p-6 scrollbar-hide">
-
-                    <h2 className="text-3xl font-semibold mb-4 text-white">Edit Resume</h2>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <h2 className="w-[80%] mx-auto text-3xl font-semibold mb-4 text-white">Edit Resume</h2>
+                    <form className="w-[80%] mx-auto" onSubmit={handleSubmit(onSubmit)}>
                         <label className="block text-sm font-medium text-white">Name<span className="text-red-500">*</span></label>
                         <input type="text" {...register("name", { required: true, pattern: "/^[A-Za-z]+$/i" })} className="w-full p-2 border rounded mb-2" />
 
@@ -272,140 +270,140 @@ const editTemplate1 = () => {
                     </form>
                 </div>
 
+                <div className="flex h-fit  my-2  lg:my-10  w-full lg:w-1/2  justify-center items-center ">
+                    <div id="resume" className="w-[630px] md:scale-100 scale-[0.65] sm:scale-[0.8] 2xl:scale-100 lg:scale-[0.8]  mx-auto p-8  my-auto bg-[#ffffff] text-[#333132] shadow-2xl  flex h-[900px]">
+                        {/* Left Section */}
+                        <div className="w-[35%] h-full bg-[#333132] text-white flex flex-col rounded-t-full">
+                            <div className="pt-6 mb-6">
+                                <img
+                                    src={preview ?? "/resume1img.png"}
+                                    alt="Profile"
+                                    className="w-44 scale-[1.2] object-cover shadow-[0px_0px_0px_6px_white] mx-auto h-44 rounded-full border-[#333132] border-4 mb-4"
 
-                <div ref={resumeRef} id="resume" className="w-[630px]  p-8  my-auto bg-[#ffffff] text-[#333132] shadow-2xl  flex h-[900px]">
-                    {/* Left Section */}
-                    <div className="w-[35%] h-full bg-[#333132] text-white flex flex-col rounded-t-full">
-                        <div className="pt-6 mb-6">
-                            <img
-                                src={preview ?? "/resume1img.png"}
-                                alt="Profile"
-                                className="w-44 scale-[1.2] object-cover shadow-[0px_0px_0px_6px_white] mx-auto h-44 rounded-full border-[#333132] border-4 mb-4"
-                            
-                            />
+                                />
+                            </div>
+                            <div className="px-3">
+
+
+                                <div className="mt-6 text-sm flex flex-col gap-2">
+                                    <h2 className="text-lg flex gap-2 font-semibold border-b border-gray-700 pb-1 mb-2"><User fill="white" />About Me</h2>
+                                    <p className="about_me text-gray-400 text-justify text-xs leading-relaxed">
+                                        {form[0]?.about_me ?? " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pharetra in lorem at laoreet."}
+                                    </p>
+                                </div>
+
+                                <div className="mt-6 text-sm flex flex-col gap-2">
+                                    <h2 className="text-lg flex gap-2 font-semibold border-b border-gray-700 pb-1 mb-2"><Contact2 />Contact</h2>
+                                    <p className="Phone_number flex items-center gap-2 text-gray-400"><Phone size={16} />{form[0]?.ph_number ?? "+123-456-7890"}</p>
+                                    <p className="email   flex items-center gap-2 text-gray-400"><Mail width={16} height={16} /><span className="overflow-hidden whitespace-nowrap  text-ellipsis text-[12px]">{form[0]?.email ?? "karnamaheshbabu32@gmail.com"}</span></p>
+                                    <p className="linkedin flex gap-2 text-gray-400"><Linkedin size={16} /> {form[0]?.Linkedin ?? "Linkedin@user"}</p>
+                                    <p className="github flex gap-2 text-gray-400"><Github size={16} />{form[0]?.Github ?? "Github@user"}</p>
+                                </div>
+
+                                <div className="mt-6 text-sm flex flex-col gap-2">
+                                    <h2 className="text-lg flex gap-2 font-semibold border-b border-gray-700 pb-1 mb-2"><Settings />Skills</h2>
+                                    <ul className="flex flex-wrap gap-1 skills text-gray-400 text-xs">
+                                        {(form[0]?.skills?.length > 0 ? form[0]?.skills : ["Web Design", "Branding", "Graphic Design", "SEO", "Marketing"]).map((skill, index) => (
+                                            <li key={index}>• {skill}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="mt-6 text-sm flex flex-col gap-2">
+                                    <h2 className="text-lg flex gap-2 font-semibold border-b border-gray-700 pb-1 mb-2"><Languages />Language</h2>
+                                    <ul className="languages flex flex-wrap gap-1 text-gray-400 text-xs">
+
+                                        {(form[0]?.languages?.length > 0 ? form[0]?.languages : ["English", "French"]).map((language, index) => (
+                                            <li key={index}>• {language}</li>
+                                        ))}
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div className="px-3">
 
-
-                            <div className="mt-6 text-sm flex flex-col gap-2">
-                                <h2 className="text-lg flex gap-2 font-semibold border-b border-gray-700 pb-1 mb-2"><User fill="white" />About Me</h2>
-                                <p className="about_me text-gray-400 text-justify text-xs leading-relaxed">
-                                    {form[0]?.about_me ?? " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pharetra in lorem at laoreet."}
-                                </p>
+                        {/* Right Section */}
+                        <div className="w-[65%] p-6 h-full text-black flex flex-col">
+                            <div>
+                                <h1 className="name text-5xl  w-[80%] font-bold">{form[0]?.name ?? "Isabel Schumacher"}</h1>
+                                <p className="title">{form[0]?.title ?? "Graphics Designer"}</p>
                             </div>
 
-                            <div className="mt-6 text-sm flex flex-col gap-2">
-                                <h2 className="text-lg flex gap-2 font-semibold border-b border-gray-700 pb-1 mb-2"><Contact2 />Contact</h2>
-                                <p className="Phone_number flex items-center gap-2 text-gray-400"><Phone size={16} />{form[0]?.ph_number ?? "+123-456-7890"}</p>
-                                <p className="email   flex items-center gap-2 text-gray-400"><Mail width={16} height={16} /><span className="overflow-hidden whitespace-nowrap  text-ellipsis text-[12px]">{form[0]?.email ?? "karnamaheshbabu32@gmail.com"}</span></p>
-                                <p className="linkedin flex gap-2 text-gray-400"><Linkedin size={16} /> {form[0]?.Linkedin ?? "Linkedin@user"}</p>
-                                <p className="github flex gap-2 text-gray-400"><Github size={16} />{form[0]?.Github ?? "Github@user"}</p>
-                            </div>
+                            <div className="flex justify-around flex-col h-[80%] gap-10 mt-16">
+                                <div className="flex flex-col gap-5">
+                                    <h2 className=" text-2xl font-semibold">💼 Experience
+                                    </h2>
+                                    {(form[0]?.experience?.length > 0 ? form[0]?.experience : [
+                                        {
+                                            aboutRole1: "Managed a team of 5 designers",
+                                            aboutRole2: "Complete a lot of complicated work ",
+                                            company: "Iarana, Inc",
+                                            duration: "2020-2023",
+                                            role: "SENIOR GRAPHIC DESIGNER"
+                                        },
+                                        {
+                                            aboutRole1: "Led a team of designers",
+                                            aboutRole2: "Collaborated with marketing",
+                                            company: "DesignHub Ltd",
+                                            duration: "2018-2020",
+                                            role: "GRAPHIC DESIGN LEAD"
+                                        }
 
-                            <div className="mt-6 text-sm flex flex-col gap-2">
-                                <h2 className="text-lg flex gap-2 font-semibold border-b border-gray-700 pb-1 mb-2"><Settings />Skills</h2>
-                                <ul className="flex flex-wrap gap-1 skills text-gray-400 text-xs">
-                                    {(form[0]?.skills?.length > 0 ? form[0]?.skills : ["Web Design", "Branding", "Graphic Design", "SEO", "Marketing"]).map((skill, index) => (
-                                        <li key={index}>• {skill}</li>
+                                    ]).map((experience, index) => (
+                                        <div key={index} className="flex h-fit items-center flex-row gap-4">
+                                            <div className="relative flex flex-col items-center h-[90%]">
+                                                <div className="w-3 h-3 bg-black rounded-full absolute top-0"></div>
+                                                <div className="h-full w-[3px] bg-black"></div>
+                                                <div className="w-3 h-3 bg-black rounded-full absolute bottom-0"></div>
+                                            </div>
+                                            <div className="h-full flex flex-col  gap-2">
+                                                <p className="role text-sm text-gray-700 font-bold">{experience.role} | {experience.duration}</p>
+                                                <p className="company_name text-sm text-gray-500">{experience.company}</p>
+                                                <ul className="done text-sm w-[full] break-all whitespace-normal text-gray-500 list-disc pl-4">
+                                                    <li>{experience.aboutRole1}</li>
+                                                    <li>{experience.aboutRole2}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     ))}
-                                </ul>
-                            </div>
 
-                            <div className="mt-6 text-sm flex flex-col gap-2">
-                                <h2 className="text-lg flex gap-2 font-semibold border-b border-gray-700 pb-1 mb-2"><Languages />Language</h2>
-                                <ul className="languages flex flex-wrap gap-1 text-gray-400 text-xs">
-
-                                    {(form[0]?.languages?.length > 0 ? form[0]?.languages : ["English", "French"]).map((language, index) => (
-                                        <li key={index}>• {language}</li>
+                                </div>
+                                <div className="flex flex-col gap-5">
+                                    <h2 className=" text-2xl font-semibold">🎓 Education
+                                    </h2>
+                                    {(form[0]?.education?.length > 0 ? form[0]?.education : [
+                                        {
+                                            cgpa: "3.80",
+                                            course: "Master of Arts in Visual Design",
+                                            duration: "2016-2018",
+                                            university: "CREATIVE ARTS INSTITUTE"
+                                        },
+                                        {
+                                            cgpa: "3.65",
+                                            course: "Bachelor of Design",
+                                            duration: " 2011-2015",
+                                            university: "WARDIERE UNIVERSITY"
+                                        }
+                                    ]).map((education, index) => (
+                                        <div key={index} className=" flex h-[80px] items-center flex-row gap-4">
+                                            <div className="relative flex flex-col items-center h-[80%]">
+                                                <div className="w-3 h-3 bg-black rounded-full absolute top-0"></div>
+                                                <div className="h-full w-[3px] bg-black"></div>
+                                                <div className="w-3 h-3 bg-black rounded-full absolute bottom-0"></div>
+                                            </div>
+                                            <div className="h-full flex flex-col justify-around">
+                                                <p className="education_duration font-semibold">{education.duration}</p>
+                                                <p className="university text-gray-700 font-bold">{education.university}</p>
+                                                <p className="course text-sm text-gray-500">{education.course} | <span className="cgpa">{education.cgpa}</span></p></div>
+                                        </div>
                                     ))}
+                                </div>
 
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Section */}
-                    <div className="w-[65%] p-6 h-full text-black flex flex-col">
-                        <div>
-                            <h1 className="name text-5xl  w-[80%] font-bold">{form[0]?.name ?? "Isabel Schumacher"}</h1>
-                            <p className="title">{form[0]?.title ?? "Graphics Designer"}</p>
-                        </div>
-
-                        <div className="flex justify-around flex-col h-[80%] gap-10 mt-16">
-                            <div className="flex flex-col gap-5">
-                                <h2 className=" text-2xl font-semibold">💼 Experience
-                                </h2>
-                                {(form[0]?.experience?.length > 0 ? form[0]?.experience : [
-                                    {
-                                        aboutRole1: "Managed a team of 5 designers",
-                                        aboutRole2: "Complete a lot of complicated work ",
-                                        company: "Iarana, Inc",
-                                        duration: "2020-2023",
-                                        role: "SENIOR GRAPHIC DESIGNER"
-                                    },
-                                    {
-                                        aboutRole1: "Led a team of designers",
-                                        aboutRole2: "Collaborated with marketing",
-                                        company: "DesignHub Ltd",
-                                        duration: "2018-2020",
-                                        role: "GRAPHIC DESIGN LEAD"
-                                    }
-
-                                ]).map((experience, index) => (
-                                    <div key={index} className="flex h-fit items-center flex-row gap-4">
-                                        <div className="relative flex flex-col items-center h-[90%]">
-                                            <div className="w-3 h-3 bg-black rounded-full absolute top-0"></div>
-                                            <div className="h-full w-[3px] bg-black"></div>
-                                            <div className="w-3 h-3 bg-black rounded-full absolute bottom-0"></div>
-                                        </div>
-                                        <div className="h-full flex flex-col  gap-2">
-                                            <p className="role text-sm text-gray-700 font-bold">{experience.role} | {experience.duration}</p>
-                                            <p className="company_name text-sm text-gray-500">{experience.company}</p>
-                                            <ul className="done text-sm w-[full] break-all whitespace-normal text-gray-500 list-disc pl-4">
-                                                <li>{experience.aboutRole1}</li>
-                                                <li>{experience.aboutRole2}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                ))}
 
                             </div>
-                            <div className="flex flex-col gap-5">
-                                <h2 className=" text-2xl font-semibold">🎓 Education
-                                </h2>
-                                {(form[0]?.education?.length > 0 ? form[0]?.education : [
-                                    {
-                                        cgpa: "3.80",
-                                        course: "Master of Arts in Visual Design",
-                                        duration: "2016-2018",
-                                        university: "CREATIVE ARTS INSTITUTE"
-                                    },
-                                    {
-                                        cgpa: "3.65",
-                                        course: "Bachelor of Design",
-                                        duration: " 2011-2015",
-                                        university: "WARDIERE UNIVERSITY"
-                                    }
-                                ]).map((education, index) => (
-                                    <div key={index} className=" flex h-[80px] items-center flex-row gap-4">
-                                        <div className="relative flex flex-col items-center h-[80%]">
-                                            <div className="w-3 h-3 bg-black rounded-full absolute top-0"></div>
-                                            <div className="h-full w-[3px] bg-black"></div>
-                                            <div className="w-3 h-3 bg-black rounded-full absolute bottom-0"></div>
-                                        </div>
-                                        <div className="h-full flex flex-col justify-around">
-                                            <p className="education_duration font-semibold">{education.duration}</p>
-                                            <p className="university text-gray-700 font-bold">{education.university}</p>
-                                            <p className="course text-sm text-gray-500">{education.course} | <span className="cgpa">{education.cgpa}</span></p></div>
-                                    </div>
-                                ))}
-                            </div>
-
-
                         </div>
                     </div>
                 </div>
-
             </div >
         </>
 

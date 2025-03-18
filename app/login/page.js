@@ -48,19 +48,19 @@ const login = () => {
 
   return (
     <div className="flex  text-white items-center justify-center min-h-screen">
-      <div className="w-[60vw]  flex flex-col justify-center items-center  p-6 rounded-lg shadow-lg">
+      <div className="w-[80vw] md:w-[60vw]  flex flex-col justify-center items-center  p-6 rounded-lg shadow-lg">
 
-      <h2 className="text-5xl w-fit font-semibold text-center mb-8 ">
-  Welcome Back to{" "}
-  <motion.span
-    initial={{ scale: 0.8, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    transition={{ duration: 0.5, ease: "easeOut" }}
-    className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600 font-extrabold"
-  >
-    ResumeCraft
-  </motion.span>
-</h2>
+        <h2 className="text-5xl w-fit font-semibold text-center mb-8 ">
+          Welcome Back to{" "}
+          <motion.span
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600 font-extrabold"
+          >
+            ResumeCraft
+          </motion.span>
+        </h2>
 
 
         <h2 className="text-3xl w-[30vw] font-semibold text-center mb-4">Login</h2>
