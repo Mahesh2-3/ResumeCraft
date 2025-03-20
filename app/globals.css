@@ -4,7 +4,9 @@
 
 
 /* Hide scrollbar but keep scrolling */
-
+*{
+  font-family: 'Poppins', sans-serif;
+}
   body {
     overflow-y: scroll; /* Enables vertical scrolling */
   }
