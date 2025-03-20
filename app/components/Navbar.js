@@ -55,7 +55,8 @@ export default function Navbar() {
         <nav className=" h-[9vh] flex items-center justify-center bg-[#071027] text-white md:p-4 px-4 shadow-lg">
             <div className=" h-full w-full flex justify-between items-center">
                 {/* Logo or Brand Name */}
-                <div className="text-3xl ml-4 md:ml-12 font-bold">ResumeCraft</div>
+                <h2 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600 font-extrabold">ResumeCraft</h2>
+
                 <div className="md:hidden block">
                     <label className="contai  w-fit mr-5">
                         <input type="checkbox" name="" id="checkbox" />

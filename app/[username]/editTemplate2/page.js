@@ -306,10 +306,10 @@ const editTemplate2 = () => {
                     </form>
 
                 </div>
-                <div className="flex h-fit md:scale-100 scale-[0.75] sm:scale-[0.8] 2xl:scale-100 lg:scale-[0.8]  my-2  lg:my-10  w-fit lg:w-1/2  justify-center overflow-hidden items-center ">
-                    <div id="resume" className="w-[630px]   mx-auto   my-auto bg-[#ffffff] text-[#333132] shadow-2xl  flex h-[900px]  ">
+                <div className="flex h-fit md:scale-0.8 scale-[0.65] sm:scale-[0.8] 2xl:scale-0.8 lg:scale-[0.8]  my-2  lg:my-10  min-w-fit lg:w-1/2  justify-center overflow-hidden items-center ">
+                    <div id="resume" className="w-[630px] my-auto bg-[#ffffff] text-[#333132] shadow-2xl  flex h-[900px]  ">
                         {/* Header Section */}
-                        <div className="mx-auto w-full flex absolute top-0 items-center  text-white p-6 rounded-t-lg h-[20%] ">
+                        <div className="flex w-[630px] flex-1  overflow-hidden  absolute top-0 items-center  text-white p-6 rounded-t-lg h-[20%] ">
                             <div className="flex justify-start px-5 rounded-l-full items-center gap-4 bg-[#241d19] w-[97%] relative py-5 right-[-46px]">
                                 <img
                                     src={preview ?? "/resume2img.png"}
@@ -323,7 +323,7 @@ const editTemplate2 = () => {
                             </div>
                         </div>
 
-                        <div className="h-full flex flex-row gap-4 text-xs">
+                        <div className="h-full  overflow-hidden flex flex-row gap-4 text-xs">
                             {/* Left Section */}
                             <div className="flex bg-[#dfd7d3] w-[64%] px-4 h-full flex-col pt-44 justify-evenly gap-10 pb-7 space-y-4">
                                 {/* Contact */}

@@ -128,9 +128,9 @@ const Resume = () => {
         <>
 
             <Navbar />
-            <div className=" lg:h-[90vh] h-fit w-full  flex flex-col-reverse lg:flex-row justify-evenly items-center ">
+            <div className=" xl:h-[90vh] h-fit w-full  flex flex-col-reverse xl:flex-row justify-evenly items-center ">
 
-                <div className="inline w-full lg:w-1/2 h-full overflow-y-auto text-black  scrollbar-hide">
+                <div className="inline w-full xl:w-1/2 h-full overflow-y-auto text-black  scrollbar-hide">
 
                     <h2 className="w-[80%] mx-auto text-3xl font-semibold mb-4 text-white">Edit Resume</h2>
                     <form className="w-[80%] mx-auto" onSubmit={handleSubmit(onSubmit)}>
@@ -262,7 +262,7 @@ const Resume = () => {
                         <button className="w-full bg-green-500 text-white my-6 rounded-md py-3 " type="submit">Submit</button>
                     </form>
                 </div>
-                <div className="scale-[0.8] sm:scale-95  flex h-fit  my-2  lg:my-10  w-fit lg:w-1/2  justify-center items-center ">
+                <div className="scale-[0.6] sm:scale-[1] xl:scale-[0.8]  flex min-h-fit my-2 min-w-fit xl:w-1/2  justify-center items-center ">
                     <div className="w-[630px] h-[900px] text-xs bg-white text-black border-gray-300 my-auto  font-sans">
                         <div className="h-[20%] p-6 bg-[#4b4b4b] ">
                             <div className=" w-fit p-6 text-white flex items-center ">

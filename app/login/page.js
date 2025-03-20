@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 
 const login = () => {
   const router = useRouter();
+  const [loading, setloading] = useState(false)
 
   const [formData, setFormData] = useState({
     username: "",
@@ -29,6 +30,7 @@ const login = () => {
     err.style.color = message.success ? "green" : "red";
     setTimeout(() => err.style.display = "none", 3000);
     if (message.success) {
+      setloading(true)
       fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`) // Call the API endpoint
         .then((res) => res.json())
         .then((data) => {
@@ -36,11 +38,13 @@ const login = () => {
             router.push(`${process.env.NEXT_PUBLIC_HOST}/${data.user.username}`)
           }
         })
-        .catch((err) => setError("Error fetching user data"));
+        .catch((err) => setError("Error fetching user data"))
+        .finally(() => setloading(false))
       reset()
     }
 
   }
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -70,7 +74,15 @@ const login = () => {
 
           <input type="password" name="password" placeholder="Password" {...register("password", { required: "This is required." })} onChange={handleChange} className="bg-transparent w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required />
 
-          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-800 transition">login</button>
+          <button id='loginbtn' disabled={loading}  type="submit" className=" w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-800 transition">
+            {loading ?(<div>
+            <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+        className="w-16 h-16 border-4 border-t-transparent border-white rounded-full"
+      ></motion.div>
+      <span className="text-3xl text-bold">Loading...</span></div>):("login")}
+          </button>
           <p className="hidden text-red-500 font-semibold text-xl mt-1 error"></p>
 
         </form>

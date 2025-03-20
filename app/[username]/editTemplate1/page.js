@@ -270,8 +270,8 @@ const editTemplate1 = () => {
                     </form>
                 </div>
 
-                <div className="flex h-fit  my-2  lg:my-10  w-full lg:w-1/2  justify-center items-center ">
-                    <div id="resume" className="w-[630px] md:scale-100 scale-[0.65] sm:scale-[0.8] 2xl:scale-100 lg:scale-[0.8]  mx-auto p-8  my-auto bg-[#ffffff] text-[#333132] shadow-2xl  flex h-[900px]">
+                <div className="flex h-fit md:scale-0.8 scale-[0.65] sm:scale-[0.8] 2xl:scale-0.8 lg:scale-[0.8] my-2  lg:my-10  min-w-fit lg:w-1/2  justify-center items-center ">
+                    <div id="resume" className="w-[630px]   mx-auto p-8  my-auto bg-[#ffffff] text-[#333132] shadow-2xl  flex h-[900px]">
                         {/* Left Section */}
                         <div className="w-[35%] h-full bg-[#333132] text-white flex flex-col rounded-t-full">
                             <div className="pt-6 mb-6">
