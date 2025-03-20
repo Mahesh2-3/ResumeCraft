@@ -4,8 +4,14 @@
 
 
 /* Hide scrollbar but keep scrolling */
+@font-face {
+  font-family: 'SystemFont';
+  src:  local(system-ui);
+  font-weight: normal;
+  font-style: normal;
+}
 *{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'SystemFont';
 }
   body {
     overflow-y: scroll; /* Enables vertical scrolling */
