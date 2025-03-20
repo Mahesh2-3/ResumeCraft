@@ -23,6 +23,7 @@ const login = () => {
   } = useForm()
 
   const onSubmit = async (data) => {
+    setloading(true)
     let message = await SubmitForm(data, "login");
     let err = document.querySelector(".error");
     err.style.display = "block";
@@ -30,7 +31,6 @@ const login = () => {
     err.style.color = message.success ? "green" : "red";
     setTimeout(() => err.style.display = "none", 3000);
     if (message.success) {
-      setloading(true)
       fetch(`${process.env.NEXT_PUBLIC_HOST}/api/info`) // Call the API endpoint
         .then((res) => res.json())
         .then((data) => {
@@ -75,17 +75,20 @@ const login = () => {
           <input type="password" name="password" placeholder="Password" {...register("password", { required: "This is required." })} onChange={handleChange} className="bg-transparent w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required />
 
           <button id='loginbtn' disabled={loading}  type="submit" className=" w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-800 transition">
-            {loading ?(<div>
-            <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-        className="w-16 h-16 border-4 border-t-transparent border-white rounded-full"
-      ></motion.div>
-      <span className="text-3xl text-bold">Loading...</span></div>):("login")}
+            login
           </button>
           <p className="hidden text-red-500 font-semibold text-xl mt-1 error"></p>
 
         </form>
+        {loading &&
+        <div className='w-full flex justify-center items-center gap-2'>
+              <span className='font-serif'>Redirecting to home page</span>
+              <motion.span
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                className="w-6 h-6 border-2 border-t-transparent border-white rounded-full"
+              ></motion.span>
+            </div>}
         <div className='flex gap-20 justify-between items-center'>
           <div className='inline text-center my-2'>New to ResumeCraft  <a className="text-green-500 hover:underline underline-offset-4" href="/register">Register Now</a> </div>
           <a className="text-blue-500 inline text-center my-2 hover:underline underline-offset-4 " href={`${process.env.NEXT_PUBLIC_HOST}/ChangePassword`}>forgot Password</a>
