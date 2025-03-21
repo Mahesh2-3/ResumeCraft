@@ -4,7 +4,7 @@
 
 
 /* Hide scrollbar but keep scrolling */
-@font-face {
+/* @font-face {
   font-family: 'SystemFont';
   src:  local(system-ui);
   font-weight: normal;
@@ -12,7 +12,7 @@
 }
 *{
   font-family: 'SystemFont';
-}
+} */
   body {
     overflow-y: scroll; /* Enables vertical scrolling */
   }
